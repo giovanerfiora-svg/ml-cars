@@ -1,46 +1,40 @@
 import csv
-import pandas as pd
-from train import treinar_modelo
+import os
+from train import treinar_e_salvar_modelo
 
-def adicionar_novo_carro(ano, km, potencia, preco_real, caminho_csv="data/cars.csv"):
-    nova_linha = [ano, km, potencia, preco_real]
+def adicionar_novo_dado():
+    diretorio_script = os.path.dirname(os.path.abspath(__file__))
+    raiz_projeto = os.path.dirname(diretorio_script)
+    caminho_csv = os.path.join(raiz_projeto, "data", "cars.csv")
 
-    with open(caminho_csv, mode='a', newline='') as arquivo:
-        escritor = csv.writer(arquivo)
-        escritor.writerow(nova_linha)
-
-        print(f"\n[Sucesso] Novo registro adicionado ao arquivo '{caminho_csv}!")
-
-def menu_interativo():
     print("========================================")
-    print("   SISTEMA DE GESTÃO E RETREINAMENTO   ")
+    print("   SISTEMA DE GESTÃO E RETREINAMENTO    ")
     print("========================================")
     print("1. Adicionar novo dado real ao dataset")
-    print("2. Sair")
+    print("2. Sair\n")
 
-    opcao = input("\nEscolha uma opção (1 ou 2): ")
+    opcao = input("Escolha uma opção (1 ou 2): ")
 
-    if opcao == '1':
+    if opcao == "1":
         try:
             ano = int(input("Ano: "))
-            km = int(input("Quilometragem: "))
+            km = float(input("Quilometragem: "))
             potencia = float(input("Potência do motor: "))
-            preco_real = float(input("Preço real de venda (R$): "))
+            preco = float(input("Preço real de venda (R$): "))
+
+            with open(caminho_csv, mode='a', newline='', encoding='utf-8') as arquivo:
+                escritor = csv.writer(arquivo)
+                escritor.writerow([ano, km, potencia, preco])
+
+            print(f"\n[Sucesso] Novo registro adicionado ao arquivo '{caminho_csv}'!\n")
+            print("Iniciando retreinamento do modelo e atualizando o arquivo salvo...")
+            
+            treinar_e_salvar_modelo()
+
         except ValueError:
-            print("\n[Erro] Você inseriu um texto onde deveria ser número. Operação cancelada.")
-            return
-        
-        adicionar_novo_carro(ano, km, potencia, preco_real)
-
-        print("\nIniciando retreinamento do modelo com os dados atualizados...")
-        try:
-            treinar_modelo()
-
-        except Exception as e:
-            print(f"\n[Erro ao retreinar]: {e}")
+            print("\n[Erro] Dados inválidos digitados. Tente novamente.")
     else:
-        print("\nSaindo do sistema.")
+        print("\nSaindo...")
 
 if __name__ == "__main__":
-    menu_interativo()
-            
+    adicionar_novo_dado()
