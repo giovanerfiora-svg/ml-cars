@@ -16,6 +16,14 @@ O sistema utiliza um modelo de regressão para estimar o preço de veículos com
 
 ---
 
+## Análise Gráfica do Modelo
+
+Abaixo está o diagnóstico visual gerado pelo script `visualization.py`, mostrando a proximidade das previsões com a linha perfeita e a distribuição dos erros:
+
+![Gráfico de Análise de Previsões e Resíduos](assets/grafico_residuos.png)
+
+---
+
 ## Conceitos Aprendidos na Prática
 
 1. **Supervised Learning (Regressão):** Uso do algoritmo `LinearRegression` para prever um valor numérico contínuo ($y = \text{Preço}$) a partir de atributos ($X = \text{Ano, Km, Potência}$).
