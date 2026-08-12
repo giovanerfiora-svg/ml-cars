@@ -1,4 +1,4 @@
-# 🚗 Estimador de Preço de Carros Usados (Machine Learning)
+# Estimador de Preço de Carros Usados (Machine Learning)
 
 Este é um projeto prático e evolutivo desenvolvido com o objetivo de aprender e aplicar os **fundamentos de Machine Learning e Engenharia de Dados** utilizando Python.
 
@@ -6,7 +6,7 @@ O sistema utiliza um modelo de regressão para estimar o preço de veículos com
 
 ---
 
-## 📌 Funcionalidades
+## Funcionalidades
 
 - **Carga e Tratamento de Dados:** Leitura e estruturação automatizada de datasets em formato CSV usando `pandas`.
 - **Treinamento e Avaliação:** Treinamento de modelo com divisão entre conjunto de Treino (75%) e Teste (25%).
@@ -16,7 +16,7 @@ O sistema utiliza um modelo de regressão para estimar o preço de veículos com
 
 ---
 
-## 🧠 Conceitos Aprendidos na Prática
+## Conceitos Aprendidos na Prática
 
 1. **Supervised Learning (Regressão):** Uso do algoritmo `LinearRegression` para prever um valor numérico contínuo ($y = \text{Preço}$) a partir de atributos ($X = \text{Ano, Km, Potência}$).
 2. **Qualidade de Dados vs. Desempenho:** Aumento substancial da métrica de determinação ($R^2$) de valores negativos para **~0.96** ao expandir a amostra de dados inicial e eliminar ruídos.
@@ -29,7 +29,7 @@ O sistema utiliza um modelo de regressão para estimar o preço de veículos com
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```text
 ml-cars/
