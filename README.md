@@ -41,6 +41,8 @@ Abaixo está o diagnóstico visual gerado pelo script `visualization.py`, mostra
 
 ```text
 ml-cars/
+├── assets/
+│   └── grafico_residuos.png # Gráfico exportado de análise de desempenho
 ├── data/
 │   └── cars.csv           # Dataset tabular com histórico de veículos
 ├── src/
